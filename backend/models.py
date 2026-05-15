@@ -45,6 +45,34 @@ class ScrapeLog(db.Model):
         }
 
 
+class ScrapeJob(db.Model):
+    """Queue table for async scraping jobs."""
+    __tablename__ = 'scrape_jobs'
+
+    id = db.Column(db.Integer, primary_key=True)
+    username = db.Column(db.String(255), nullable=False)
+    limit = db.Column(db.Integer, default=10)
+    status = db.Column(db.String(50), default='pending')  # pending | running | done | error
+    total_found = db.Column(db.Integer, default=0)
+    total_saved = db.Column(db.Integer, default=0)
+    message = db.Column(db.Text)
+    created_at = db.Column(db.DateTime, default=datetime.utcnow)
+    updated_at = db.Column(db.DateTime, default=datetime.utcnow, onupdate=datetime.utcnow)
+
+    def to_dict(self):
+        return {
+            'id': self.id,
+            'username': self.username,
+            'limit': self.limit,
+            'status': self.status,
+            'total_found': self.total_found,
+            'total_saved': self.total_saved,
+            'message': self.message,
+            'created_at': self.created_at.isoformat() if self.created_at else None,
+            'updated_at': self.updated_at.isoformat() if self.updated_at else None,
+        }
+
+
 class Property(db.Model):
     __tablename__ = 'properties'
 
@@ -94,4 +122,3 @@ class Property(db.Model):
             'post_url': self.post_url,
             'scraped_at': self.scraped_at.isoformat() if self.scraped_at else None,
         }
-
