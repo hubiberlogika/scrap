@@ -1,4 +1,7 @@
 {
   "name": "scrapper-home-root",
-  "private": true
+  "private": true,
+  "scripts": {
+    "build": "cd frontend && npm install && npm run build"
+  }
 }
