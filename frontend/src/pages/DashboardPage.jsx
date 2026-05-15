@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import LoadingSpinner from '../components/LoadingSpinner'
 
-const API_BASE = import.meta.env.DEV ? 'http://localhost:5000/api' : '/api'
+const API_BASE = import.meta.env.VITE_API_BASE || '/api'
 
 export default function DashboardPage(){
   const [stats, setStats] = useState(null)

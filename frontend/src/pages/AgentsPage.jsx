@@ -3,7 +3,7 @@ import axios from 'axios'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorBanner from '../components/ErrorBanner'
 
-const API_BASE = import.meta.env.DEV ? 'http://localhost:5000/api' : '/api'
+const API_BASE = import.meta.env.VITE_API_BASE || '/api'
 
 export default function AgentsPage(){
   const [agents, setAgents] = useState([])
