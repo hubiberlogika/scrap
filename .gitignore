@@ -1,8 +1,28 @@
+# Environment
 .env
 backend/.env
 frontend/.env
+
+# Logs
 *.log
+
+# Python
 __pycache__/
 *.pyc
-.parcel-cache/
-dist/
+*.pyo
+*.pyd
+backend/.venv/
+.venv/
+
+# Node
+node_modules/
+frontend/node_modules/
+frontend/dist/
+frontend/.parcel-cache/
+
+# SQLite local DB
+backend/instance/
+backend/*.db
+
+# OS
+.DS_Store
