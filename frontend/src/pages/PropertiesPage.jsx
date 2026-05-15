@@ -5,7 +5,7 @@ import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorBanner from '../components/ErrorBanner'
 import EditModal from '../components/EditModal'
 
-const API_BASE = 'http://localhost:5000'
+const API_BASE = import.meta.env.DEV ? 'http://localhost:5000/api' : '/api'
 
 export default function PropertiesPage(){
   const [properties, setProperties] = useState([])

@@ -15,7 +15,7 @@ def create_app():
     CORS(app)
 
     from routes import bp as routes_bp
-    app.register_blueprint(routes_bp)
+    app.register_blueprint(routes_bp, url_prefix='/api')
 
     with app.app_context():
         db.create_all()

@@ -3,7 +3,7 @@ import axios from 'axios'
 import LoadingSpinner from '../components/LoadingSpinner'
 import ErrorBanner from '../components/ErrorBanner'
 
-const API_BASE = 'http://localhost:5000'
+const API_BASE = import.meta.env.DEV ? 'http://localhost:5000/api' : '/api'
 
 export default function LogsPage(){
   const [logs, setLogs] = useState([])
