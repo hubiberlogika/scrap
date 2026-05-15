@@ -1,0 +1,8 @@
+.env
+backend/.env
+frontend/.env
+*.log
+__pycache__/
+*.pyc
+.parcel-cache/
+dist/
